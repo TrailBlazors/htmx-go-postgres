@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Htmx + Go + PostgreSQL Starter</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-2xl">
+        <!-- Header -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">✨ Htmx + Go + PostgreSQL</h1>
+            <p class="text-gray-600">No JavaScript frameworks. Just HTML and Htmx magic.</p>
+        </div>
+
+        <!-- Add Todo Form -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Add New Todo</h2>
+            <form hx-post="/todos" 
+                  hx-target="#todo-list" 
+                  hx-swap="innerHTML"
+                  class="flex gap-2">
+                <input 
+                    type="text" 
+                    name="title" 
+                    placeholder="Enter todo..." 
+                    required
+                    class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <button 
+                    type="submit"
+                    class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+                    Add
+                </button>
+            </form>
+        </div>
+
+        <!-- Todo List -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Todo List</h2>
+            <div id="todo-list" 
+                 hx-get="/todos" 
+                 hx-trigger="load"
+                 hx-swap="innerHTML">
+                <!-- Todos will be loaded here -->
+                <p class="text-gray-500 text-center py-4">Loading...</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-8 text-center text-gray-600 text-sm">
+            <p>Built with ❤️ using Htmx, Go, and PostgreSQL</p>
+            <p class="mt-2">No JavaScript frameworks • No build step • Pure simplicity</p>
+        </div>
+    </div>
+</body>
+</html>

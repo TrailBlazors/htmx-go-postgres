@@ -1,0 +1,28 @@
+{{if .}}
+    {{range .}}
+    <div class="flex items-center justify-between p-4 border-b border-gray-200 hover:bg-gray-50 transition">
+        <div class="flex items-center gap-3 flex-1">
+            <input 
+                type="checkbox" 
+                {{if .Completed}}checked{{end}}
+                hx-put="/todos/{{.ID}}/toggle"
+                hx-target="#todo-list"
+                hx-swap="innerHTML"
+                class="w-5 h-5 text-blue-500 rounded focus:ring-2 focus:ring-blue-500 cursor-pointer">
+            <span class="{{if .Completed}}line-through text-gray-400{{else}}text-gray-800{{end}}">
+                {{.Title}}
+            </span>
+        </div>
+        <button 
+            hx-delete="/todos/{{.ID}}"
+            hx-target="#todo-list"
+            hx-swap="innerHTML"
+            hx-confirm="Delete this todo?"
+            class="px-3 py-1 text-red-500 hover:bg-red-50 rounded transition">
+            🗑️ Delete
+        </button>
+    </div>
+    {{end}}
+{{else}}
+    <p class="text-gray-500 text-center py-8">No todos yet. Add one above! ☝️</p>
+{{end}}
