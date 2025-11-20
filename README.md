@@ -4,7 +4,7 @@
 
 Build dynamic web applications without JavaScript frameworks. Use Htmx for interactivity, Go for a fast backend, and PostgreSQL for data persistence. No build step, no bundlers, just pure simplicity.
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/TEMPLATE_ID)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.com/deploy/htmx-postgressql-starter)
 
 ## ✨ Features
 
