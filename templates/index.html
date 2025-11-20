@@ -21,6 +21,7 @@
             <form hx-post="/todos" 
                   hx-target="#todo-list" 
                   hx-swap="innerHTML"
+                  hx-on::after-request="this.reset()"
                   class="flex gap-2">
                 <input 
                     type="text" 
