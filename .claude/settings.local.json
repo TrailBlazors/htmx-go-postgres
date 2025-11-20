@@ -2,7 +2,13 @@
   "permissions": {
     "allow": [
       "Bash(ren \"to-list.html\" \"todo-list.html\")",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)",
+      "WebSearch",
+      "WebFetch(domain:docs.railway.com)",
+      "WebFetch(domain:blog.railway.com)"
     ],
     "deny": [],
     "ask": []
